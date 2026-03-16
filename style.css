@@ -1,0 +1,211 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ANIMIERTER HINTERGRUND */
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(-45deg, 
+    #4DD739, 
+    #80D629, 
+    #24AB50, 
+    #63CF2E);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  color: white;
+  overflow-x: hidden;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* HEADER */
+#header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  transition: all 0.5s ease;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.header-inner {
+  width: 100%;
+  padding: 25px 40px;
+  background: rgba(0,0,0,0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+
+.header-text h1 {
+  font-size: 3.5rem;
+  transition: font-size 0.5s ease;
+}
+
+.header-text span {
+  display: block;
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.btn {
+  background: white;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: transform 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* STICKY-ZUSTAND */
+#header.sticky {
+  height: 80px;
+}
+
+#header.sticky .header-inner {
+  background: rgba(0,0,0,0.9);
+  padding: 15px 40px;
+}
+
+#header.sticky h1 {
+  font-size: 1.6rem;
+}
+
+/* INHALT */
+.hero-space {
+  height: 100vh;
+}
+
+.content {
+  min-height: auto;
+  padding: 60px 10%;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 25px;
+}
+
+.content h3 {
+  margin-bottom: 15px;
+  color: #133f21;
+}
+
+.content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 900px;
+  margin-bottom: 20px;
+  opacity: 0.9; /* Korrigiert von 5 */
+}
+
+/* TABELLE */
+.mitarbeiter-table {
+  margin-top: 40px;
+  width: 100%;
+  max-width: 800px;
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.05);
+}
+
+.mitarbeiter-table th,
+.mitarbeiter-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.mitarbeiter-table th {
+  background: rgba(0,0,0,0.2);
+  color: #133f21;
+}
+/* Das Logo-Bild innerhalb des Headers */
+#header img {
+  height: 80px; /* Startgröße im Hero-Bereich */
+  transition: height 0.5s ease, transform 0.5s ease;
+}
+
+/* Wenn der Header sticky wird (schwarzer Balken) */
+/* HEADER START-ZUSTAND */
+/* HEADER GRUNDZUSTAND (Große Ansicht) */
+#header {
+  position: absolute; /* WICHTIG: Er scrollt mit dem Inhalt hoch */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: background 0.3s ease;
+  overflow: hidden;
+}
+
+/* HEADER STICKY (Der schwarze Balken oben) */
+#header.sticky {
+  position: fixed; /* Jetzt klebt er oben fest */
+  height: 80px;   /* Die Höhe des Balkens */
+  background: rgba(0, 0, 0, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header-inner {
+  width: 100%;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s ease;
+}
+
+/* Schriftgrößen-Anpassung */
+.header-text h1 {
+  font-size: 3.5rem;
+  transition: all 0.4s ease;
+}
+
+#header.sticky h1 {
+  font-size: 1.6rem; /* Wird klein im Balken */
+}
+
+.header-text span {
+  font-size: 1.2rem;
+  transition: all 0.4s ease;
+}
+
+#header.sticky span {
+  font-size: 0.8rem; /* Untertitel wird auch kleiner */
+}
+
+/* Logo-Größe */
+#header img {
+  height: 500px;
+  transition: all 0.4s ease;
+}
+
+#header.sticky img {
+  height: 50px; /* Logo schrumpft für den Balken */
+}
